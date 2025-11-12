@@ -52,7 +52,7 @@ def compute_entropy_weights(window):
     return np.dot(W, center)
 
 # ---------- 3. Sliding Window RSEIFE ----------
-def compute_rseife_map(stack, kernel_size=31):
+def compute_rseife_map(stack, kernel_size=133):
     pad = kernel_size // 2
     padded = np.pad(stack, ((pad, pad), (pad, pad), (0, 0)), mode='constant', constant_values=np.nan)
     windows = view_as_windows(padded, (kernel_size, kernel_size, stack.shape[2]))
@@ -86,7 +86,7 @@ def process_rseife_for_year(year):
         bands.append(band)
 
     stack = np.stack(bands, axis=-1)
-    rseife = compute_rseife_map(stack, kernel_size=31)
+    rseife = compute_rseife_map(stack, kernel_size=133)
     rseife_norm = normalize(rseife)
 
     prof.update(dtype='float32', count=1, height=rseife_norm.shape[0], width=rseife_norm.shape[1], nodata=np.nan)
