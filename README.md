@@ -25,4 +25,4 @@ South Asia. Environ Monit Assess 198, 309 (2026). https://doi.org/10.1007/s10661
 
 
 
-![Alt text](relative/path/to/image.png)
+![Paper Summary](diagram_paper.png)
